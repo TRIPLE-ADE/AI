@@ -207,9 +207,9 @@ const Monitor = () => {
           </div>
           <div className="capture_button_wrapper ">
             <button
-              // disabled={disable}
-              // onClick={capture}
-              onClick={toggleModal}
+              disabled={disable}
+              onClick={capture}
+              // onClick={toggleModal}
               className="capture_button1"
             >
               Capture
