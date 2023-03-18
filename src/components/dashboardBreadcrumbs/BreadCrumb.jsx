@@ -13,7 +13,7 @@ const BreadCrumb = ({ currentLink, setSidebar, sidebar }) => {
         }}
       />
       <div className="Bread_links flex items-center font-[inter] ">
-        <Link to="/dashboard/test1" className="link1">
+        <Link to="/dashboard/home" className="link1">
           <p className="link_item1">Dashboard</p>
         </Link>
         <IoIosArrowForward className="mx-2 text-[20px]" />

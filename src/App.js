@@ -7,6 +7,7 @@ import AuthenticationForm from "./pages/login/loginform";
 import Dashboard from "./pages/Main_Dashboard/Dashboard";
 import About from "./pages/Main_Dashboard/About";
 import Monitor from "./pages/Main_Dashboard/Monitor";
+import History from "./pages/Main_Dashboard/History";
 import { Navigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import Logs from "./pages/Main_Dashboard/Logs";
@@ -50,7 +51,7 @@ class App extends Component {
             path="/"
             element={
               this.state.user ? (
-                <Navigate to="/dashboard/test1" />
+                <Navigate to="/dashboard/home" />
               ) : (
                 <AuthenticationForm />
               )
@@ -60,7 +61,7 @@ class App extends Component {
             path="/auth"
             element={
               this.state.user ? (
-                <Navigate to="/dashboard/test1" />
+                <Navigate to="/dashboard/home" />
               ) : (
                 <AuthenticationForm />
               )
@@ -75,9 +76,10 @@ class App extends Component {
             }
           >
             <Route index element={<About/>} />
-            <Route path="/dashboard/test2" element={<Monitor />} />
-            <Route path="/dashboard/test1" element={<About />} />
-            <Route path="/dashboard/test3" element={<Logs />} />
+            <Route path="/dashboard/staff-registration" element={<Monitor />} />
+            <Route path="/dashboard/home" element={<About />} />
+            <Route path="/dashboard/live-security-control" element={<Logs />} />
+            <Route path="/dashboard/history" element={<History />} />
           </Route>
         </Routes>
       </div>

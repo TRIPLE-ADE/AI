@@ -89,10 +89,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="wrapper overflow-y-scroll">
-        <div className="container mx-auto px-4 flex flex-col items-center ">
-          <div className="mt-10 mb-10">
-            <img src={logo} alt="iuni-ibadan logo" className="" />
+      <div className="overflow-y-scroll wrapper">
+        <div className="container flex flex-col items-center px-4 mx-auto ">
+          <div className="mt-10 mb-5">
+            <img src={logo} alt="AEIRG logo" className="w-72" />
           </div>
 
           <h1 className="font-[inter] font-bold text-[25px] text-center text-[white] mb-10">

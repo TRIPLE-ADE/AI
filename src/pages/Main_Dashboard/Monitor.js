@@ -16,7 +16,12 @@ const Monitor = () => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const folderRef = useRef();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [redirectTo, setRedirectTo] = useState(null);
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   const capture = async () => {
     setIdValue(idValue + 1);
     const context = canvasRef.current.getContext("2d");
@@ -49,11 +54,14 @@ const Monitor = () => {
       });
     }
     if (idValue === 5) {
-      endVideo();
-      navigate("/dashboard/test1");
+      toggleModal();
     }
   };
-
+  const handleRedirect = () => {
+    if (redirectTo) {
+      navigate(redirectTo);
+    }
+  };
   const startVideo = async () => {
     setDisable(0);
     setStopStream(!stopStream);
@@ -99,11 +107,32 @@ const Monitor = () => {
   const handleFolder = (e) => {
     setFolder(e.target.value);
   };
-
+  
   return (
     <div className="monitor_wrapper flex flex-col h-[100%] w-[100%]">
+    {isModalOpen && (
+        <div className="custom-modal">
+          <div className="custom-modal-content">
+            <p className="text-lg font-bold">Successful!</p>
+            <div className="flex gap-10 pt-10">
+              <button
+                className="confirm-button"
+                onClick={() => {
+                  setRedirectTo("/dashboard/home");
+                  handleRedirect();
+                }}
+              >
+                HomePage
+              </button>
+              <button className="confirm-button" onClick={toggleModal}>
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <ToastContainer />
-      <div className="monitor_section flex flex-row justify-between mt-20">
+      <div className="flex flex-row justify-between mt-20 monitor_section">
         <div className="folderName">
           <label className="folderNameLabel" htmlFor="folderName">
             Folder Name
@@ -117,21 +146,70 @@ const Monitor = () => {
             type="text"
             id="folderName"
           />
+          <label className="folderNameLabel" htmlFor="folderName">
+            Name
+          </label>
+          <input
+            ref={folderRef}
+            onChange={(e) => {
+              handleFolder(e);
+            }}
+            className="outline-[#5d6a77] mt-4 w-full folderNameInput"
+            type="text"
+            id="folderName"
+          />
+          <label className="folderNameLabel" htmlFor="folderName">
+            Role
+          </label>
+          <input
+            ref={folderRef}
+            onChange={(e) => {
+              handleFolder(e);
+            }}
+            className="outline-[#5d6a77] mt-4 w-full folderNameInput"
+            type="text"
+            id="folderName"
+          />
+          <label className="folderNameLabel" htmlFor="folderName">
+            Unit
+          </label>
+          <input
+            ref={folderRef}
+            onChange={(e) => {
+              handleFolder(e);
+            }}
+            className="outline-[#5d6a77] mt-4 w-full folderNameInput"
+            type="text"
+            id="folderName"
+          />
+          <label className="folderNameLabel" htmlFor="folderName">
+            Resumption Date
+          </label>
+          <input
+            ref={folderRef}
+            onChange={(e) => {
+              handleFolder(e);
+            }}
+            className="outline-[#5d6a77] mt-4 w-full folderNameInput"
+            type="text"
+            id="folderName"
+          />
           <button
             onClick={createFolder}
-            className="mt-6 w-full folderNameButton"
+            className="w-full mt-6 folderNameButton"
           >
-            Create Folder
+            Register
           </button>
         </div>
         <div className="capture">
-          <div className="preview flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center preview">
             <video ref={videoRef} className="w-full rounded-[8px]" />
           </div>
           <div className="capture_button_wrapper ">
             <button
-              disabled={disable}
-              onClick={capture}
+              // disabled={disable}
+              // onClick={capture}
+              onClick={toggleModal}
               className="capture_button1"
             >
               Capture

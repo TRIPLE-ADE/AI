@@ -16,6 +16,41 @@
 }
 
 .monitor_wrapper {
+  .custom-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 300px;
+    margin:0 30px;
+  }
+  
+  .confirm-button {
+    // background-color: red;
+    background: #760096;
+    // background: #5d6a77;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    min-width:100px;
+  }  
   .monitor_section {
     @media screen and (max-width: 600px) {
       flex-direction: column;
@@ -41,6 +76,7 @@
         line-height: 120%;
         display: flex;
         align-items: center;
+        padding-top:20px ;
       }
       .folderNameInput {
         box-sizing: border-box;

@@ -18,66 +18,92 @@ function Dashboard({ siginOUt }) {
     <div className="h-full dash_wrapper">
       <div className="flex items-start h-full dash_container">
         <div
-          className={`bg-[#5d6a77] h-full dash_sidebar ${
+          className={`bg-[#2D8490] h-full dash_sidebar ${
             sidebar ? "dash_sidebarOpen" : "dash_sidebarClose"
           }`}
         >
+        {/* <div
+          className={`bg-[#5d6a77] h-full dash_sidebar ${
+            sidebar ? "dash_sidebarOpen" : "dash_sidebarClose"
+          }`}
+        > */}
           <div className="flex flex-col items-center mt-10">
-            <img src={Logo} alt="university of ibadan" className="mb-10" />
+            <img src={Logo} alt="AEIRG LOGO" className="px-10 mb-2" />
             {/* <h1 className="mb-10 font-[inter] text-[20px] text-[white] font-semibold">
               IS4RM
             </h1> */}
           </div>
 
           <div>
-            <Link
+            {/* <Link
               to="/dashboard/test1"
               className="hover:text-[#001A35] flex items-center text-[white] ml-6"
+            >*/}
+            <Link
+              to="/dashboard/home"
+              className="hover:text-[#760096] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center  ${
-                  path.includes("test1")
-                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                  path.includes("home")
+                    ? "border-r-8 border-r-[#760096] text-[#760096]"
                     : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  Test 1
+                  Home
                 </p>
               </div>
             </Link>
             <Link
-              to="/dashboard/test2"
-              className="hover:text-[#001A35] flex items-center text-[white] ml-6"
+              to="/dashboard/staff-registration"
+              className="hover:text-[#760096] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center ${
-                  path.includes("test2")
-                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                  path.includes("staff-registration")
+                    ? "border-r-8 border-r-[#760096] text-[#760096]"
                     : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  Test 2
+                 Staff Registration
                 </p>
               </div>
             </Link>
             <Link
-              to="/dashboard/test3"
-              className="hover:text-[#001A35] flex items-center text-[white] ml-6"
+              to="/dashboard/live-security-control"
+              className="hover:text-[#760096] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center ${
-                  path.includes("test3")
-                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                  path.includes("live-security-control")
+                    ? "border-r-8 border-r-[#760096] text-[#760096]"
                     : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  Test 3
+                  Live Security Control
+                </p>
+              </div>
+            </Link>
+            <Link
+              to="/dashboard/history"
+              className="hover:text-[#760096] flex items-center text-[white] ml-6"
+            >
+              <div
+                className={`flex items-center ${
+                  path.includes("history")
+                    ? "border-r-8 border-r-[#760096] text-[#760096]"
+                    : ""
+                } w-full py-3`}
+              >
+                <RiRadioButtonLine className="text-[24px]" />
+                <p className="text-[15px] font-[inter] font-semibold ml-2">
+                History
                 </p>
               </div>
             </Link>
@@ -85,7 +111,7 @@ function Dashboard({ siginOUt }) {
               onClick={() => {
                 siginOUt();
               }}
-              className="hover:text-[#001A35] flex items-center text-[white] ml-6 cursor-pointer"
+              className="hover:text-[#760096] flex items-center text-[white] ml-6 cursor-pointer"
             >
               <div className="flex items-center w-full py-3">
                 <TbLogout className="text-[24px]" />
@@ -104,7 +130,7 @@ function Dashboard({ siginOUt }) {
             sidebar ? "dash_overlayOpen" : "dash_overlayClose"
           }`}
         ></div>
-        <div className="outlet-body w-screen h-full outlet-media overflow-x-hidden dash_outlet">
+        <div className="w-screen h-full overflow-x-hidden outlet-body outlet-media dash_outlet">
           {/* <MdOutlineMenu
             className="dash_hamburger cursor-pointer text-[black] mb-4"
             onClick={() => {

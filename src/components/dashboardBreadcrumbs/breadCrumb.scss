@@ -5,12 +5,15 @@
   padding-left: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  @media screen and  (max-width:400px) {
+    padding-left: 0;
+  }
   .dash_hamburger {
     @media screen and (min-width: 850px) {
       display: none;
     }
-    font-size: 40px;
-    margin-right: 2rem;
+    font-size: 30px;
+    margin:0 1rem;
   }
   .Bread_links {
     .link1 {

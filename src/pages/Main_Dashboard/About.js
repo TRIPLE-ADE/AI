@@ -6,6 +6,7 @@ import { MdFaceRetouchingOff } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Logo from "../../assets/logo.png";
 import "react-toastify/dist/ReactToastify.css";
 const About = () => {
   const Navigate = useNavigate();
@@ -30,12 +31,15 @@ const About = () => {
   return (
     <div className="flex flex-col h-full about_wrapper">
       <ToastContainer />
-      <div className="test1_section1 mt-20 flex items-center justify-between mx-[1.5rem]">
+      <div className="flex flex-col items-center mt-10">
+        <img src={Logo} alt="AEIRG LOGO" className="px-10 mb-2 w-96" />
+      </div>
+      <div className="test1_section1 mt-10 flex items-center justify-between mx-[1.5rem]">
         <div className="enroll flex flex-col items-center w-[30%]">
-          <BsFillPersonFill className="text-[50px] text-[#082a4d]" />
+          <BsFillPersonFill className="text-[50px] text-[#760096]" />
           <p
             onClick={() => {
-              Navigate("/dashboard/test2");
+              Navigate("/dashboard/staff-registration");
             }}
             className="enroll_text mt-2 text-[#082a4d] cursor-pointer font-bold"
           >
@@ -43,23 +47,23 @@ const About = () => {
           </p>
         </div>
         <div className="train flex flex-col items-center w-[30%]">
-          <FcProcess className="text-[50px] text-[#082a4d]" />
+          <FcProcess className="text-[50px] text-[#760096]" />
           <p
             onClick={handleTrainModel}
             className="enroll_text mt-2 text-[#082a4d] cursor-pointer font-bold"
           >
-            {train ? "...Training" : "Train Model"}
+            {train ? "...Training" : "Update Security Profile"}
           </p>
         </div>
         <div className="train flex flex-col items-center w-[30%]">
-          <MdFaceRetouchingOff className="text-[50px] text-[#00ff00]" />
+          <MdFaceRetouchingOff className="text-[50px] text-[#760096]" />
           <p
             onClick={() => {
-              Navigate("/dashboard/test3");
+              Navigate("/dashboard/live-security-control");
             }}
             className="enroll_text mt-2 text-[#082a4d] cursor-pointer font-bold"
           >
-            Test Model
+            Live Security Control
           </p>
         </div>
       </div>
