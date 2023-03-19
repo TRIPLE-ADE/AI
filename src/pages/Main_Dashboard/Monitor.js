@@ -11,11 +11,19 @@ const Monitor = () => {
   const [vstream, setVstream] = useState(null);
   const [stopStream, setStopStream] = useState(0);
   const [folder, setFolder] = useState("");
+  const [name, setName] = useState("");
+  const [resumptionDate, setResumptionDate] = useState("");
+  const [role, setRole] = useState("");
+  const [unit, setUnit] = useState("");
   const [idValue, setIdValue] = useState(0);
   const [disable, setDisable] = useState(1);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const folderRef = useRef();
+  const nameRef = useRef();
+  const roleRef = useRef();
+  const dateRef = useRef();
+  const unitRef = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [redirectTo, setRedirectTo] = useState(null);
 
@@ -87,10 +95,19 @@ const Monitor = () => {
 
   const createFolder = async () => {
     try {
+      // await axios.post("http://127.0.0.1:5000/register", {
+      //   folder_name: folder,
+      // });
+      const folderData = {
+        name: nameRef.current.value,
+        role: roleRef.current.value,
+        unit: unitRef.current.value,
+        resumptionDate: dateRef.current.value,
+      };
       await axios.post("http://127.0.0.1:5000/register", {
-        folder_name: folder,
-      });
-
+        folder_name: folderRef.current.value,
+        ...folderData
+      })
       folderRef.current.value = "";
       toast.success(`Created ${folder} folder`, {
         position: toast.POSITION.TOP_RIGHT,
@@ -150,49 +167,53 @@ const Monitor = () => {
             Name
           </label>
           <input
-            ref={folderRef}
+            ref={nameRef}
             onChange={(e) => {
-              handleFolder(e);
+            setName(e.target.value);
             }}
+            value={name}
             className="outline-[#5d6a77] mt-4 w-full folderNameInput"
             type="text"
-            id="folderName"
+            id="name"
           />
           <label className="folderNameLabel" htmlFor="folderName">
             Role
           </label>
           <input
-            ref={folderRef}
+            ref={roleRef}
             onChange={(e) => {
-              handleFolder(e);
+            setRole(e.target.value);
             }}
+            value={role}
             className="outline-[#5d6a77] mt-4 w-full folderNameInput"
             type="text"
-            id="folderName"
+            id="role"
           />
           <label className="folderNameLabel" htmlFor="folderName">
             Unit
           </label>
           <input
-            ref={folderRef}
+            ref={unitRef}
             onChange={(e) => {
-              handleFolder(e);
+            setUnit(e.target.value);
             }}
+            value={unit}
             className="outline-[#5d6a77] mt-4 w-full folderNameInput"
             type="text"
-            id="folderName"
+            id="unit"
           />
           <label className="folderNameLabel" htmlFor="folderName">
             Resumption Date
           </label>
           <input
-            ref={folderRef}
+            ref={dateRef}
             onChange={(e) => {
-              handleFolder(e);
+            setResumptionDate(e.target.value);
             }}
+            value={resumptionDate}
             className="outline-[#5d6a77] mt-4 w-full folderNameInput"
             type="text"
-            id="folderName"
+            id="date"
           />
           <button
             onClick={createFolder}
